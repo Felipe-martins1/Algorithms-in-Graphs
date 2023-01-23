@@ -4,10 +4,13 @@ class ListaAdjacencia:
         self.graph = {}
         self.directed = directed
 
+
+    #Complexidade adiciona_vertice t(n) = 2 ou 1 -> O(1)
     def adiciona_vertice(self, vertice):
         if vertice not in self.graph:
             self.graph[vertice] = []
 
+    #Complexidade remove_vertice -> O(n)
     def remove_vertice(self, vertice):
         if(self.vertice_existe(vertice)):
             for v in self.graph:
@@ -16,7 +19,8 @@ class ListaAdjacencia:
             del self.graph[vertice]
         else:
             raise Exception('Vertice não encontrado')
-            
+    
+    #Complexidade adiciona_aresta -> O(1)
     def adiciona_aresta(self, vertice1, vertice2):
         if(self.aresta_pertence_ao_grafo(vertice1, vertice2)):
             raise Exception('Aresta já existe')
@@ -31,6 +35,7 @@ class ListaAdjacencia:
         else:
             raise Exception('Vertice não encontrado')
 
+    #Complexidade remove_aresta -> O(1) 
     def remove_aresta(self, vertice1, vertice2):
         if(self.aresta_pertence_ao_grafo(vertice1, vertice2)):
             self.graph[vertice1].remove(vertice2)
@@ -48,9 +53,11 @@ class ListaAdjacencia:
     def aresta_pertence_ao_grafo(self, vertice1, vertice2):
         return vertice2 in self.graph[vertice1]
 
+    #Complexidade busca_vertices_adjacentes -> O(1) 
     def busca_vertices_adjacentes(self, vertice):
         return self.graph[vertice]
 
+    #Complexidade busca_vertices_inscidentes -> O(n) 
     def busca_vertices_inscidentes(self, vertice):
         vertices = []
         for v in self.graph:
@@ -58,6 +65,7 @@ class ListaAdjacencia:
                 vertices.append(v)
         return vertices
 
+    #Complexidade busca_aresta_complemento -> O(1) 
     def busca_aresta_complemento(self, complemento, vertice1, vertice2):
         pertence_grafo = self.aresta_pertence_ao_grafo(vertice1, vertice2)
         pertence_complemento = complemento.aresta_pertence_ao_grafo(vertice1, vertice2)
@@ -73,7 +81,7 @@ class ListaAdjacencia:
         
         return None, None
         
-
+    #Complexidade grafo_complemento -> O(n^3) 
     def grafo_complemento(self):
         complemento = ListaAdjacencia(self.directed)
         for v in self.graph:
@@ -87,6 +95,7 @@ class ListaAdjacencia:
                         vertice_complemento1, vertice_complemento2 = self.busca_aresta_complemento(complemento, vertice1, vertice2)
         return complemento
 
+    #Complexidade grafo_transposto -> O(n^2)
     def grafo_transposto(self):
         if(self.directed == False):
             raise Exception('Grafo não direcionado')
@@ -99,6 +108,7 @@ class ListaAdjacencia:
                 transposto.adiciona_aresta(adjacente, v)
         return transposto
 
+    #Complexidade matriz_adjacencia -> O(n^2)
     def matriz_adjacencia(self):
         matriz = []
         for vertice in self.graph:
@@ -110,7 +120,8 @@ class ListaAdjacencia:
                     linha.append(0)
             matriz.append(linha)
         return matriz
-
+    
+    #Complexidade print_matriz_adjacencia -> O(n^2)
     def print_matriz_adjacencia(self, matriz: list):
         print('\n' + '-------------------------', end='\n\n', )
         print('Matriz de Adjacencia: ', end='\n\n')
@@ -131,6 +142,7 @@ class ListaAdjacencia:
             print('\n')
         print('-------------------------', end='\n\n')
 
+    #Complexidade print_graph -> O(n^2)
     def print_graph(self): 
         print('\n' + '-------------------------', end='\n\n', )
         print('Lista de Adjacencia: ', end='\n\n')
