@@ -1,6 +1,9 @@
+#ALUNOS:
+
+#Felipe Domiciano Martins RA: 123959
+#Gabriel Sossai Soares RA: 125475
+
 from lista_adjacencia import ListaAdjacencia
-
-
 
 with open('graph.txt') as f:
     lines = f.readlines()
