@@ -1,4 +1,5 @@
 
+
 class ListaAdjacencia:
     def __init__(self, directed: bool = False):
         self.graph = {}
