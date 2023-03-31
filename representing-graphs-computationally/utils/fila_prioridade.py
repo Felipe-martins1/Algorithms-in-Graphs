@@ -16,9 +16,9 @@ class FilaPrioridade:
             return None
         else:
             minimo = self.fila[0]
-            (custoMin, verticeMin) = minimo
+            (custoMin, _) = minimo
             for i in range(1, len(self.fila)):
-                (custo, vertice) = self.fila[i]
+                (custo, _) = self.fila[i]
                 if custo < custoMin:
                     minimo = self.fila[i]
             self.fila.remove(minimo)

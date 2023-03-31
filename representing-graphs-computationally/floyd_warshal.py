@@ -1,30 +1,31 @@
 from math import inf
 
+
 def create_vertex_map(adj_list):
-    vertex_map = {}
+    vertice_map = {}
     i = 0
-    for vertex in adj_list:
-        if vertex not in vertex_map:
-            vertex_map[vertex] = i
+    for vertice in adj_list:
+        if vertice not in vertice_map:
+            vertice_map[vertice] = i
             i += 1
-        for neighbor, weight in adj_list[vertex]:
-            if neighbor not in vertex_map:
-                vertex_map[neighbor] = i
+        for adjacente, _ in adj_list[vertice]:
+            if adjacente not in vertice_map:
+                vertice_map[adjacente] = i
                 i += 1
-    return vertex_map
+    return vertice_map
 
 def floyd_warshall(graph):
-    vertex_map = create_vertex_map(graph)
-    n = len(vertex_map)
+    vertice_map = create_vertex_map(graph)
+    n = len(vertice_map)
     
     dist = [[inf for _ in range(n)] for _ in range(n)]
     for i in range(n):
         dist[i][i] = 0
-    for vertex in graph:
-        i = vertex_map[vertex]
-        for neighbor, weight in graph[vertex]:
-            j = vertex_map[neighbor]
-            dist[i][j] = weight
+    for vertice in graph:
+        i = vertice_map[vertice]
+        for adjacente, peso in graph[vertice]:
+            j = vertice_map[adjacente]
+            dist[i][j] = peso 
     
     
     for k in range(n):

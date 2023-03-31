@@ -17,9 +17,9 @@ def kruskal(graph):
 
     arestas = sort_arestas_by_peso(graph)
 
-    for weight, vertice, adjacente in arestas:
+    for peso, vertice, adjacente in arestas:
         if union_set.findSet(vertice) != union_set.findSet(adjacente):
-            arvore_g_minima.append((vertice, adjacente, weight))
+            arvore_g_minima.append((vertice, adjacente, peso))
             union_set.union(vertice, adjacente)
 
     return arvore_g_minima

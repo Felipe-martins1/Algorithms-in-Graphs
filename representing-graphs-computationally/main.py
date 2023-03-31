@@ -10,6 +10,8 @@ from dijkstra import dijkstra
 from floyd_warshal import floyd_warshall
 from bellman_ford import bellman_ford
 
+from utils.print_matrix_floyd_warshall import print_matrix_floyd_warshall
+
 from utils.adiciona_pesos import adiciona_pesos
 
 with open('grafo_com_pesos.txt') as f:
@@ -46,9 +48,10 @@ with open('grafo_com_pesos.txt') as f:
 
     print('\n---------FLOYD WARSHALL--------\n');
     caminho_minimo = floyd_warshall(grafo_com_pesos);
-   
-    print(caminho_minimo);
+    print_matrix_floyd_warshall(grafo_com_pesos, caminho_minimo);
 
+    print('\n')
+    
     
 
     

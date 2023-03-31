@@ -1,10 +1,10 @@
-undirected
-a b 9
-a d 1
-a e 5
-b c 2
-b e 7
-b f 6
-c f 4
-d e 3
-e f 8
+directed
+a b 5
+a e 4
+b c 1
+c d 3
+c e 2
+c f 7
+e b 2
+f d 5
+f e 3

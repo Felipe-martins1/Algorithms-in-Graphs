@@ -10,7 +10,7 @@ def dijkstra(grafo, origem):
 
     while fila:
         
-        distancia_atual, vertice_atual = fila.remover()
+        _, vertice_atual = fila.remover()
         
         if vertice_atual in visitados:
             continue
